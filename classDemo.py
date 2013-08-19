@@ -1,6 +1,8 @@
 class Person:
     count=0
     __test=2
+    class P1:
+        p1name='p1'
     def __init__(self,name):
         self.name=name
     def sayHi(self):
@@ -10,13 +12,23 @@ class Person:
         print('self = '+str(self.count))
     def getTest(self):
         return  self.__test
+    @classmethod
+    def classM(self):
+        print('classmethod')
+    @staticmethod
+    def staticM():
+        print('staticmethod')
 class Chinese(Person):
     def __init__(self,name,age):
         Person.__init__(self,name)
         self.age=age
     def getAge(self):
         print('age is '+str(self.age))
+Person.staticM()
+
 p1=Person('tom')
+p4=p1.P1()
+print(p4.p1name)
 p1.count=11111111111
 p1.sayHi()
 
